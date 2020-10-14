@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin/projects")
 class ProjectAdminController {
-	private String junkString = null;
+	private final String junkString = null;
 	
 	private final ProjectMetadataService service;
 
