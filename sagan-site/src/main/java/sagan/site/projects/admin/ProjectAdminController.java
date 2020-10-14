@@ -36,6 +36,7 @@ import java.util.Random;
 @RequestMapping("/admin/projects")
 class ProjectAdminController {
 	private final String junkString = null;
+	private final String unused = "this is unused";
 	
 	private final ProjectMetadataService service;
 
