@@ -35,27 +35,9 @@ import java.util.Random;
 @Controller
 @RequestMapping("/admin/projects")
 class ProjectAdminController {
-	private final String junkString = null;
-	private final String unused = "this is unused";
-	
 	private final ProjectMetadataService service;
 
 	private final ModelMapper modelMapper;
-
-	public int GetJunkLength() {
-		return junkString.length();
-	}
-	
-	public String CouldReturnNull() {
-		Random rand = new Random(); 
-        	int rand_int1 = rand.nextInt(2);
-		return (rand_int1==0) ? "This is not null" : null;
-	}
-	
-	public void NPE() {
-		p = CouldReturnNull();
-  		int len = p.length();
-	}
 	
 	public ProjectAdminController(ProjectMetadataService service, ModelMapper modelMapper) {
 		this.service = service;
