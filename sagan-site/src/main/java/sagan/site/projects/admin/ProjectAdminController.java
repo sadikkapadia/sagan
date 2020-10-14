@@ -33,11 +33,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin/projects")
 class ProjectAdminController {
-
+	private String junkString = null;
+	
 	private final ProjectMetadataService service;
 
 	private final ModelMapper modelMapper;
 
+	public int GetJunkLength() {
+		return junkString.length();
+	}
+	
 	public ProjectAdminController(ProjectMetadataService service, ModelMapper modelMapper) {
 		this.service = service;
 		this.modelMapper = modelMapper;
