@@ -1,2 +1,3 @@
 build = "gradle build"
 jdk11 = false
+tools = ["infer"] 
