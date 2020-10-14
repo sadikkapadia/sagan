@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Random; 
+
 /**
  * Controller that handles administrative actions for Spring project metadata, e.g. adding
  * new releases, updating documentation urls, etc. Per rules in
@@ -41,6 +43,17 @@ class ProjectAdminController {
 
 	public int GetJunkLength() {
 		return junkString.length();
+	}
+	
+	public String CouldReturnNull() {
+		Random rand = new Random(); 
+        	int rand_int1 = rand.nextInt(2);
+		return (rand_int1==0) ? "This is not null" : null;
+	}
+	
+	public void NPE() {
+		p = CouldReturnNull();
+  		int len = p.length();
 	}
 	
 	public ProjectAdminController(ProjectMetadataService service, ModelMapper modelMapper) {
