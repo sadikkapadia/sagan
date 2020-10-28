@@ -31,7 +31,9 @@ jobs:
         sudo ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
 #        ls "/opt/infer-linux64-v$VERSION/bin"
 #        ls /usr/local/bin
+# Install the latest version. (Install it into ./bin/ by default).
+    - name: Install Reviewdog
+      run: curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s
     - name: Run Infer
       run: infer run -- ./gradlew clean build
-#        ./gradlew clean
 
