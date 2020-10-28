@@ -24,3 +24,5 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Install Infer
+      run: curl -sSL "https://github.com/facebook/infer/releases/download/v$VERSION/infer-linux64-v1.0.0.tar.xz" | sudo tar -xJ  
