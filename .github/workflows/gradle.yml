@@ -32,7 +32,7 @@ jobs:
         sudo ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
         ls /usr/local/bin
     - name: Run Infer
-        run infer run -- ./gradlew build
+      run: infer run -- ./gradlew build
         
         
       #&& \
