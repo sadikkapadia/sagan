@@ -31,6 +31,9 @@ jobs:
         ls "/opt/infer-linux64-v$VERSION/bin"
         sudo ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
         ls /usr/local/bin
+    - name: Run Infer
+        run infer run -- ./gradlew build
+        
         
       #&& \
     #  ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
