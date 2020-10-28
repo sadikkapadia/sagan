@@ -27,9 +27,11 @@ jobs:
     - name: Install Infer
       run: |
         VERSION=1.0.0
-        curl -sSL "https://github.com/facebook/infer/releases/download/v$VERSION/infer-linux64-v$VERSION.tar.xz" \
-        | sudo tar -C /opt -xJ && \
-        ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
+        curl -sSL "https://github.com/facebook/infer/releases/download/v$VERSION/infer-linux64-v$VERSION.tar.xz" | sudo tar -C /opt -xJ 
+        ls "/opt/infer-linux64-v$VERSION/bin"
+        
+      #&& \
+    #  ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
         
     #- name: Install Infer
    # run: curl -sSL "https://github.com/facebook/infer/releases/download/v1.0.0/infer-linux64-v1.0.0.tar.xz" | sudo tar -xJ  
