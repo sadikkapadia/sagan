@@ -35,12 +35,15 @@ jobs:
 # Install the latest version. (Install it into ./bin/ by default).
     - name: Install Reviewdog
       run: curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s
+      # https://github.com/spring-io/sagan/wiki/Run-the-site-on-Cloud-Foundry
     - name: Run Infer
-      run: infer run -- ./gradlew clean build
+      run: |
+        cd sagan-site
+        infer run -- ./gradlew clean build -x check
 # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-java-with-gradle
     - name: Save Artifacts/Packages
       uses: actions/upload-artifact@v2
       with:
-        name: Package
+        name: sagan-site
         path: build/libs
 
