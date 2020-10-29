@@ -38,6 +38,13 @@ jobs:
     - name: Run Infer
       run: infer run -- ./gradlew clean build
 # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-java-with-gradle
+    - name: Cache Gradle packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+        restore-keys: ${{ runner.os }}-gradle
+# https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-java-with-gradle
 # https://github.com/spring-io/sagan/wiki/Run-the-site-on-Cloud-Foundry
     - name: Build Artifacts
       run: |
@@ -47,6 +54,6 @@ jobs:
     - name: Save Artifacts/Packages
       uses: actions/upload-artifact@v2
       with:
-        name: sagan-site
+        name: sagan-site-1.0.0-SNAPSHOT.jar
         path: build/libs
 
