@@ -39,7 +39,7 @@ jobs:
     - name: Run Infer
       run: |
         cd sagan-site
-        infer run -- ./gradlew clean build -x check
+        infer run -- ../gradlew clean build -x check
 # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-java-with-gradle
     - name: Save Artifacts/Packages
       uses: actions/upload-artifact@v2
