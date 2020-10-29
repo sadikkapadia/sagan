@@ -36,7 +36,7 @@ jobs:
     - name: Install Reviewdog
       run: curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s
     - name: Run Infer
-      run: infer run -- ../gradlew clean build
+      run: infer run -- ./gradlew clean build
 # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-java-with-gradle
 # https://github.com/spring-io/sagan/wiki/Run-the-site-on-Cloud-Foundry
     - name: Build Artifacts
