@@ -56,10 +56,11 @@ jobs:
         cd sagan-site
         ../gradlew build -x check
         ls build/libs
-    - name: Save Artifacts/Packages
+    - name: List Artifacts/Packages
       run: |
         ls -lR
-        ls -l sagan-site
+        ls -l sagan-site    - name: Save Artifacts/Packages
+    - name: Save Artifacts/Packages
       uses: actions/upload-artifact@v2
       with:
         name: sagan-site-1.0.0-SNAPSHOT.jar
