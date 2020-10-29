@@ -34,7 +34,9 @@ jobs:
 #        ls /usr/local/bin
 # Install the latest version. (Install it into ./bin/ by default).
     - name: Install Reviewdog
-      run: curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s
+      run: |
+        curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s
+        ls ./bin
     - name: Run Infer
       run: infer run -- ./gradlew clean build
 # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-java-with-gradle
