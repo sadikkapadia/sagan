@@ -41,7 +41,7 @@ jobs:
 #        curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s
 #        ls ./bin
     - name: Run Infer
-      run: infer run -- ./gradlew clean build
+      run: infer run -- ./gradlew clean build | reviewdog -f=checkstyle -name="infer" -reporter=github-check | reviewdog -f=checkstyle -name="infer" -reporter=github-check
 # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-java-with-gradle
     - name: Cache Gradle packages
       uses: actions/cache@v2
@@ -57,8 +57,11 @@ jobs:
         ../gradlew build -x check
         ls build/libs
     - name: Save Artifacts/Packages
+      run: |
+        ls -lR
+        ls -l sagan-site
       uses: actions/upload-artifact@v2
       with:
         name: sagan-site-1.0.0-SNAPSHOT.jar
-        path: build/libs
+        path: ../build/libs
 
