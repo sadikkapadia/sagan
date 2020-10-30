@@ -45,7 +45,7 @@ jobs:
         REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         ./gradlew clean
-        infer run -- ./gradlew build | reviewdog -f=checkstyle -name="infer" -reporter=github-pr-check
+        infer run -- ./gradlew build | reviewdog -efm="%f:%l:%c: %m" -name="infer" -reporter=github-pr-check
 # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-java-with-gradle
     - name: Cache Gradle packages
       uses: actions/cache@v2
