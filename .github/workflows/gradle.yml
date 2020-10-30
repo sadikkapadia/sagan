@@ -41,7 +41,9 @@ jobs:
 #        curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s
 #        ls ./bin
     - name: Run Infer
-      run: infer run -- ./gradlew clean build | reviewdog -f=checkstyle -name="infer" -reporter=github-check
+      run: |
+        ./gradlew clean
+        infer run -- ./gradlew build | reviewdog -f=checkstyle -name="infer" -reporter=github-check
 # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-java-with-gradle
     - name: Cache Gradle packages
       uses: actions/cache@v2
