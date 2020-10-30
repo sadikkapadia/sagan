@@ -62,8 +62,7 @@ jobs:
         ls build/libs
     - name: List Artifacts/Packages
       run: |
-        ls -lR
-        ls -l sagan-site    - name: Save Artifacts/Packages
+        ls -l sagan-site 
     - name: Save Artifacts/Packages
       uses: actions/upload-artifact@v2
       with:
