@@ -50,7 +50,7 @@ jobs:
         echo "*** Ending raw infer ***"
         ./gradlew clean
         echo "*** Starting reveiwdog infer ***"
-        infer run -- ./gradlew build | reviewdog -efm="%f:%l: %m" -name="infer" -reporter=github-pr-check
+        infer run -- ./gradlew build | reviewdog -efm="%C %m" -efm="%E%f:%l: %m" -efm="%Z%-G%.%#" -name="infer" -reporter=github-pr-check
         echo "*** Ending raw infer ***"
 # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-java-with-gradle
     - name: Cache Gradle packages
