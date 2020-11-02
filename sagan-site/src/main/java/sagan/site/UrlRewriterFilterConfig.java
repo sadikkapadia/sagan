@@ -15,6 +15,10 @@ public class UrlRewriterFilterConfig {
 	
 	@Bean
 	public FilterRegistrationBean rewriteFilterConfig() {
+		String s = null;
+    		if (s.length()==null) {
+			return null;
+		}
 		FilterRegistrationBean reg = new FilterRegistrationBean();
 		reg.setName(REWRITE_FILTER_NAME);
 		reg.setFilter(new TuckeyRewriteFilter());

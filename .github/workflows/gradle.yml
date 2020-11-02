@@ -5,9 +5,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ master ]
+
   pull_request:
-    branches: [ master ]
+
 
 jobs:
   build:
@@ -49,7 +49,13 @@ jobs:
         REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         ./gradlew clean
-        infer run -- ./gradlew build | reviewdog -f=checkstyle -name="infer" -reporter=github-pr-check
+        echo "*** Starting raw infer ***"
+        infer run -- ./gradlew build
+        echo "*** Ending raw infer ***"
+        ./gradlew clean
+        echo "*** Starting reveiwdog infer ***"
+        infer run -- ./gradlew build | reviewdog -efm="%C %m" -efm="%E%f:%l: %m" -efm="%Z%-G%.%#" -name="infer" -reporter=github-pr-check -diff="git diff master"
+        echo "*** Ending raw infer ***"
 # https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-java-with-gradle
     - name: Cache Gradle packages
       uses: actions/cache@v2
